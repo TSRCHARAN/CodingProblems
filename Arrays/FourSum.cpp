@@ -1,22 +1,22 @@
 vector<vector<int>> fourSum(vector<int>& num, int target)
 {
-         vector<vector<int> > res;
+        vector<vector<int> > res;
 
         if (num.empty())
             return res;
-        int n = num.size();
-        sort(num.begin(),num.end());
 
-        for (int i = 0; i < n; i++) {
+        std::sort(num.begin(),num.end());
 
-            int target_3 = target - num[i];
+        for (int i = 0; i < num.size(); i++) {
 
-            for (int j = i + 1; j < n; j++) {
+            long target_3 = target - num[i];
 
-                int target_2 = target_3 - num[j];
+            for (int j = i + 1; j < num.size(); j++) {
+
+                long target_2 = target_3 - num[j];
 
                 int front = j + 1;
-                int back = n - 1;
+                int back = num.size() - 1;
 
                 while(front < back) {
 
@@ -45,11 +45,11 @@ vector<vector<int>> fourSum(vector<int>& num, int target)
                 }
 
                 // Processing the duplicates of number 2
-                while(j + 1 < n && num[j + 1] == num[j]) ++j;
+                while(j + 1 < num.size() && num[j + 1] == num[j]) ++j;
             }
 
             // Processing the duplicates of number 1
-            while (i + 1 < n && num[i + 1] == num[i]) ++i;
+            while (i + 1 < num.size() && num[i + 1] == num[i]) ++i;
 
         }
 
