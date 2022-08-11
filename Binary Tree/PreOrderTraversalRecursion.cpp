@@ -1,4 +1,4 @@
-void helper(TreeNode* root,vector<int>& ans)
+void preorder(TreeNode* root,vector<int>& ans)
 {
         if(root==NULL)
         {
@@ -6,13 +6,13 @@ void helper(TreeNode* root,vector<int>& ans)
         }
 
         ans.push_back(root->val);
-        helper(root->left,ans);
-        helper(root->right,ans);
+        preorder(root->left,ans);
+        preorder(root->right,ans);
 }
 
 vector<int> preorderTraversal(TreeNode* root)
 {
         vector<int> ans;
-        helper(root,ans);
+        preorder(root,ans);
         return ans;
 }
